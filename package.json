@@ -1,0 +1,17 @@
+{
+  "name": "mern-realestate",
+  "version": "1.0.0",
+  "description": "Estate Manager Web Application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev":"nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "author": "Jaydeep Malvya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
