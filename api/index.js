@@ -1,6 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
 import dotenv from 'dotenv';
+
+// importroutes
+import userRouter from './routes/user.route.js';
+
 
 dotenv.config();
 
@@ -24,3 +29,12 @@ app.get('/',(req,res)=>{
 app.listen(port,()=>{
   console.log(`Server running on port:${port}`);
 })
+
+
+//api routing
+
+// app.get('/test',(req,res)=>{
+//   res.send("Hello World")
+// })
+
+app.use('/api/user',userRouter)
