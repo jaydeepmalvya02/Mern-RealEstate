@@ -5,9 +5,11 @@ import dotenv from 'dotenv';
 
 // importroutes
 import userRouter from './routes/user.route.js';
+import authRouter from './routes/auth.route.js';
 
 
 dotenv.config();
+
 
 
 
@@ -22,10 +24,9 @@ mongoose.connect(process.env.MONGO).then(()=>{
 
 
 const app=express();
+app.use(express.json());
 const port=4000
-app.get('/',(req,res)=>{
-  res.send("Welcome")
-})
+
 app.listen(port,()=>{
   console.log(`Server running on port:${port}`);
 })
@@ -38,3 +39,4 @@ app.listen(port,()=>{
 // })
 
 app.use('/api/user',userRouter)
+app.use('/api/auth',authRouter)
