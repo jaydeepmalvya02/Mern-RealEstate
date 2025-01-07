@@ -17,8 +17,8 @@ const userSchema=new mongoose.Schema({
   },
   avatar:{
     type:String,
-    deafult:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-  }
+    default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  },
 },{timestamps:true})
 
 const User=mongoose.model('User',userSchema);
