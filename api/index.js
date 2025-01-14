@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 
 // importroutes
@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGO).then(()=>{
 
 const app=express();
 app.use(express.json());
+app.use(cookieParser())
 const port=4000
 
 app.listen(port,()=>{
