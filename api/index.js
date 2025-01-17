@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 // importroutes
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
+import listingRouter from './routes/listing.route.js';
 
 
 dotenv.config();
@@ -41,6 +42,7 @@ app.listen(port,()=>{
 
 app.use('/api/user',userRouter)
 app.use('/api/auth',authRouter)
+app.use('/api/listing',listingRouter)
 
 //middleware
 
@@ -55,3 +57,14 @@ return res.status(statusCode).json({
 
 });
 });
+
+import events from 'events';
+
+const emitter = new events.EventEmitter();
+emitter.setMaxListeners(20); // 20 listeners ki limit set karein
+
+// Listener add karein
+emitter.on('exit', () => console.log('Exiting process...'));
+
+// Event trigger karein
+emitter.emit('exit');
