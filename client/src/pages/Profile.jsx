@@ -157,6 +157,7 @@ const handleListingDelete=async(listingId)=>{
 }
 
 
+
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
@@ -213,7 +214,7 @@ const handleListingDelete=async(listingId)=>{
           <Link to={`/listing/${listing._id}`}>
           <img src={listing.imageUrls[0]} alt="listing cover" className='h-16 w-16 object-contain ' />
 
-           </Link>
+           </Link >
            <Link className=' flex-1 text-slate-700 font-semibold  hover:underline truncate
            ' to={`/listing/${listing._id}`}>
            <p >{listing.name}</p>
@@ -222,7 +223,11 @@ const handleListingDelete=async(listingId)=>{
             <button 
             onClick={()=>handleListingDelete(listing._id)}
             className='text-red-700 uppercase'>Delete</button>
-            <button className='text-green-700 uppercase'>Edit</button>
+            <Link to={`/update-listing/${listing._id}`}>
+            <button 
+      
+            className='text-green-700 uppercase'>Edit</button>
+            </Link>
           </div>
         </div>
        ))}
