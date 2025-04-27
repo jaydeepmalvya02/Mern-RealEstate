@@ -14,7 +14,12 @@ import {
   FaShare,
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
-import MapEmbed from '../components/mapEmbed';
+import MapEmbed from '../components/MapEmbed';
+
+
+
+
+
 
 export default function Listing() {
 
@@ -110,7 +115,7 @@ export default function Listing() {
             </p>
              {showMap && (
                       <div className="mt-4">
-                        <MapEmbed />
+                        <MapEmbed/>
                       </div>
                     )}
           <div className='flex gap-4'>

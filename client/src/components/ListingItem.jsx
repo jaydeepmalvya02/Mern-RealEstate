@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 import { useState } from "react";
-import MapEmbed from "./mapEmbed";
+import MapEmbed from "./MapEmbed";
+
 
 export default function ListingItem({ listing }) {
   const [showMap, setShowMap] = useState(false); // 👈 useState ko sabse upar lao
@@ -43,7 +44,7 @@ export default function ListingItem({ listing }) {
         {/* Map embed hone ka area */}
         {showMap && (
           <div className="mt-4">
-            <MapEmbed />
+           <MapEmbed/>
           </div>
         )}
 
