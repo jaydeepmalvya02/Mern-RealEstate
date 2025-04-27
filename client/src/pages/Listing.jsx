@@ -14,8 +14,10 @@ import {
   FaShare,
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
+import MapEmbed from '../components/mapEmbed';
 
 export default function Listing() {
+
   SwiperCore.use([Navigation]);
   const[listing,setListing]=useState(null);
   const [loading,setLoading]=useState(false);
@@ -26,7 +28,12 @@ export default function Listing() {
   const [copied, setCopied] = useState(false);
   // console.log(currentUser._id,listing?.userRef);
   
+  const [showMap, setShowMap] = useState(false); // 👈 useState ko sabse upar lao
 
+  const handleMapClick = (e) => {
+    e.preventDefault(); // **STOP Link navigation**
+    setShowMap((prev) => !prev);
+  }
 
   useEffect(()=>{
     const fetchListing=async()=>{
@@ -95,9 +102,17 @@ export default function Listing() {
               {listing.type === 'rent' && ' / month'}
             </p>
             <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
-              <FaMapMarkerAlt className='text-green-700' />
+              <FaMapMarkerAlt className='text-green-700'
+              onClick={handleMapClick}
+              />
+              
               {listing.address}
             </p>
+             {showMap && (
+                      <div className="mt-4">
+                        <MapEmbed />
+                      </div>
+                    )}
           <div className='flex gap-4'>
             <p className='bg-red-900 w-full max-w-[][200px] text-white text-center p-1 rounded-md'>
               {listing.type==='rent' ? 'For Rent' : 'For Sale'}
